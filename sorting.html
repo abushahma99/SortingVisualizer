@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sort.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="sortingAsc.png" type="image/x-icon">
+    <title>Sorting</title>
+</head>
+<body>
+    <nav style="background-color: rgb(2, 2, 2); margin: 0; position: -webkit-sticky; position: sticky; top: 0;">
+        <div class="nav">
+            <div class="ch">
+                <h1><a href="#div1">Sorting</a></h1>
+            </div>
+            <div class="ch">
+                <h1><a href="#hello">Bubble Sort</a></h1>
+            </div>
+            <div class="ch">
+                <h1><a href="#hello1">Selection Sort</a></h1>
+            </div>
+            <div class="ch">
+                <h1><a href="#hello2">Insertion Sort</a></h1>
+            </div>
+            <div class="ch">
+                <h1><a href="#hello3">QuickSort</a></h1>
+            </div>
+            <div class="ch">
+                <h1><a href="#hello4">Merge Sort</a></h1>
+            </div>
+        </div>
+    </nav>
+
+    <section style="margin: 1rem; font-family: 'Montserrat', sans-serif;">
+        <div id="div1" style="padding: 1rem;">
+            <h1 style="text-align: center; text-decoration: underline; font-size: 1cm; ">SORTING</h1>
+            <p>Arranging the elements in non-decreasing order (each element is less than or equal to its successor) is called <span>Sorting</span>.</p>
+            <p>
+                There are various types of sorting :-
+                <li>
+                    Bubble Sort
+                </li>
+                <li>
+                    Selection Sort
+                </li>
+                <li>
+                    Insertion Sort
+                </li>
+                <li>
+                    QuickSort
+                </li>
+                <li>
+                    Merge Sort
+                </li>
+            </p>
+        </div>
+        <hr style="height:8px; border-radius: 1cm; background-color: black; margin-bottom: 1rem;">
+        <div id="hello" >
+            <h1 style="text-align: center; text-decoration: underline; font-size: 1cm;">Bubble Sort</h1>
+            <p>
+                Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.
+                <br>Example: <br> 
+                First Pass: <br> 
+                ( <span style="color: black;">5 1</span> 4 2 8 ) –> ( <span style="color: black; ">1 5</span> 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1. <br>
+                ( 1 <span style="color: black; ">5 4</span> 2 8 ) –>  ( 1 <span style="color: black; ">4 5</span> 2 8 ), Swap since 5 > 4 <br>
+                ( 1 4 <span style="color: black; ">5 2</span> 8 ) –>  ( 1 4 <span style="color: black; ">2 5</span> 8 ), Swap since 5 > 2 <br>
+                ( 1 4 2 <span style="color: black; ">5 8</span> ) –> ( 1 4 2 <span style="color: black; ">5 8</span> ), Now, since these elements are already in order (8 > 5), algorithm does not swap them. <br>
+                Second Pass: <br>
+                ( <span style="color: black; ">1 4</span> 2 5 8 ) –> ( <span style="color: black; ">1 4</span> 2 5 8 ) <br>
+                ( 1 <span style="color: black; ">4 2</span> 5 8 ) –> ( 1 <span style="color: black; ">2 4</span> 5 8 ), Swap since 4 > 2 <br>
+                ( 1 2 <span style="color: black; ">4 5</span> 8 ) –> ( 1 2 <span style="color: black; ">4 5</span> 8 ) <br>
+                ( 1 2 4 <span style="color: black; ">5 8</span> ) –>  ( 1 2 4 <span style="color: black; ">5 8</span> ) <br>
+                Now, the array is already sorted, but our algorithm does not know if it is completed. The algorithm needs one whole pass without any swap to know it is sorted. <br>
+                Third Pass: <br>
+                ( <span style="color: black; ">1 2</span> 4 5 8 ) –> ( <span style="color: black; ">1 2</span> 4 5 8 ) <br>
+                ( 1 <span style="color: black; ">2 4</span> 5 8 ) –> ( 1 <span style="color: black; ">2 4</span> 5 8 ) <br>
+                ( 1 2 <span style="color: black; ">4 5</span> 8 ) –> ( 1 2 <span style="color: black; ">4 5</span> 8 ) <br>
+                ( 1 2 4 <span style="color: black; ">5 8</span> ) –> ( 1 2 4 <span style="color: black; ">5 8</span> ) <br>
+            </p>
+            <p>
+                <span style="font-weight: bold;">
+                    <span style="color: black; text-decoration: underline;">Worst and Average Case Time Complexity</span>  : O(n^2)</span>.
+                Worst case occurs when array is reverse sorted. <br>
+                <span style="font-weight: bold;">
+                    <span style="color: black; text-decoration: underline;">Best Case Time Complexity</span> : O(n)</span>. Best case occurs when array is already sorted. <br>
+                <span style="font-weight: bold; color: black; text-decoration: underline;">Auxiliary Space</span>: O(1)
+            </p>
+            <br>
+            <h2 style="text-decoration: underline; font-size: 0.8cm;">Bubble Sort Code :-</h2>
+            <p>
+                void bubbleSort(int arr[], int n) <br>
+                { <br>
+                    int i, j;<br>
+                    bool swapped;<br>
+                    for (i = 0; i < n-1; i++) <br>
+                    {<br>
+                        swapped = false;<br>
+                        for (j = 0; j < n-i-1; j++) <br>
+                        {<br>
+                            if (arr[j] > arr[j+1]) <br>
+                            {<br>
+                                swap(arr[j], arr[j+1]);<br>
+                                swapped = true;<br>
+                            } <br>
+                        } <br>
+                        if (swapped == false) <br>
+                            break;<br>
+                    } <br>
+                }
+            </p>
+        </div>
+        <hr style="height:8px; border-radius: 1cm; background-color: black; margin-top: 1rem;">
+        <div id="hello1">
+            <h1 style="text-align: center; text-decoration: underline; font-size: 1cm; ">Selection Sort</h1>
+            <p>The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. 
+                The algorithm maintains two subarrays in a given array. </p>
+                <ul>1) The subarray which is already sorted.</ul> 
+                <ul>2) Remaining subarray which is unsorted.</ul>
+            <p>In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray. </p>
+
+            <h2 style="text-decoration: underline; font-size: 0.8cm;">Selection Sort Code :-</h2>
+            <p>
+                void selectionSort(int arr[], int n) <br>
+                {<br>
+                    int i, j, min_idx;<br>
+                    for (i = 0; i < n-1; i++) <br>
+                    {<br>
+                        min_idx = i;<br>
+                        for (j = i+1; j < n; j++) <br>
+                        if (arr[j] < arr[min_idx]) <br>
+                            min_idx = j;<br>
+                        swap(arr[min_idx],arr[i]);<br>
+                    } <br>
+                }
+            </p>
+        </div>
+        <hr style="height:8px; border-radius: 1cm; background-color: black; margin-bottom: 1rem;">
+
+        <div id="hello2" style="padding: 1rem;">
+            <h1 style="text-align: center; text-decoration: underline; font-size: 1cm;">Insertion Sort</h1>
+            <p>
+                Insertion sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. 
+                The array is virtually split into a sorted and an unsorted part. 
+                Values from the unsorted part are picked and placed at the correct position in the sorted part. <br>
+                Example of Insertion how it works:-
+            </p>
+            <img src="InsertionSort.png" alt="image" width="500px" height="400px" style="display: block; margin:auto;">
+            <h2 style="text-decoration: underline; font-size: 0.8cm;">Insertion Sort Code :-</h2>
+            <p>
+                void insertionSort(int arr[], int n) <br>
+                {<br>
+                    int i, key, j;<br>
+                    for (i = 1; i < n; i++) <br>
+                    {<br>
+                        key = arr[i];<br>
+                        j = i - 1;<br>
+                        while (j >= 0 && arr[j] > key) <br>
+                        {<br>
+                            arr[j + 1] = arr[j];<br>
+                            j = j - 1;<br>
+                        } <br>
+                        arr[j + 1] = key; <br>
+                    } <br>
+                }
+            </p>
+        </div>
+        <hr style="height:8px; border-radius: 1cm; background-color: black; margin-top: 1rem;">
+        <div id="hello3">
+            <h1 style="text-align: center; text-decoration: underline; font-size: 1cm;">Quick Sort</h1>
+            <p>
+                QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways. <br>
+                <ul>1) Always pick first element as pivot.</ul>
+                <ul>2) Always pick last element as pivot (implemented below)</ul>
+                <ul>3) Pick a random element as pivot.</ul>
+                <ul>4) Pick median as pivot.</ul>
+                <p>
+                The key process in quickSort is partition(). Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x. 
+                All this should be done in linear time.
+            </p>
+            <img src="QuickSort.png" alt="image" width="600px" height="300px" style="display: block; margin: auto; border: 1px solid;">
+            <h2 style="text-decoration: underline; font-size: 0.8cm;">QuickSort Algorithm :-</h2>
+            <h3 style="text-decoration: underline; font-size: 0.6cm;">Partition Code:-</h3>
+            <p>
+                int partition (int arr[], int low, int high) <br>
+                { <br>
+                    int pivot = arr[high];<br>
+                    int i = (low - 1);<br>
+                
+                    for (int j = low; j <= high - 1; j++) <br>
+                    { <br>
+                        if (arr[j] < pivot) <br>
+                        { <br>
+                            i++; <br>
+                            swap(arr[i],arr[j]); <br>
+                        } <br>
+                    } <br>
+                    swap(arr[i+1],arr[high]); <br>
+                    return (i + 1); <br>
+                } 
+            </p>
+            <h3 style="text-decoration: underline; font-size: 0.6cm;">QuickSort Code:-</h3>
+            <p>
+                void quickSort(int arr[], int low, int high) <br>
+                { <br>
+                    if (low < high) <br>
+                    { <br>
+                        int q = partition(arr, low, high); <br>
+                        quickSort(arr, low, q - 1); <br>
+                        quickSort(arr, q + 1, high); <br>
+                    } <br>
+                } 
+            </p>
+        </div>
+        <hr style="height:8px; border-radius: 1cm; background-color: black; margin-bottom: 1rem;">
+        <div id="hello4">
+            <h1 style="text-align: center; text-decoration: underline; font-size: 1cm;">Merge Sort</h1>
+            <p>
+                Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves. 
+                The merge() function is used for merging two halves. The merge(arr, l, m, r) is a key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one.
+            </p>
+            <h2 style="text-decoration: underline; font-size: 0.8cm;">Merge Algorithm :-</h2>
+            <p>
+                MergeSort(arr[], l,  r) <br>
+                If r > l <br>
+                    1. Find the middle point to divide the array into two halves:  <br>
+                            middle m = l+ (r-l)/2 <br>
+                    2. Call mergeSort for first half: <br>  
+                            Call mergeSort(arr, l, m) <br>
+                    3. Call mergeSort for second half: <br>
+                            Call mergeSort(arr, m+1, r) <br>
+                    4. Merge the two halves sorted in step 2 and 3: <br>
+                            Call merge(arr, l, m, r)
+            </p>
+            <img src="Merge.png" alt="image" width="600px" height="500px" style="display: block; margin: auto; border: 1px solid;">
+
+            <h2 style="text-decoration: underline; font-size: 0.8cm;">Merge Code :-</h2>
+            <p>
+                void merge(int arr[], int l, int m, int r) <br>
+                {<br>
+                    int i, j, k;<br>
+                    int n1 = m - l + 1;<br>
+                    int n2 = r - m;<br>
+                    int L[n1], R[n2];<br>
+                    for (i = 0; i < n1; i++) <br>
+                        L[i] = arr[l + i];<br>
+                    for (j = 0; j < n2; j++) <br>
+                        R[j] = arr[m + 1 + j]; <br>
+                    i = 0;<br>
+                    j = 0;<br>
+                    k = l; <br>
+                    while (i < n1 && j < n2) <br>
+                    { <br>
+                        if (L[i] <= R[j]) <br>
+                        { <br>
+                            arr[k] = L[i];<br>
+                            i++;<br>
+                        } <br>
+                        else <br>
+                        { <br>
+                            arr[k] = R[j]; <br>
+                            j++; <br>
+                        } <br>
+                        k++; <br>
+                    } <br>
+                    while (i < n1)  <br>
+                    { <br>
+                        arr[k] = L[i]; <br>
+                        i++; <br>
+                        k++; <br>
+                    } <br>
+                    while (j < n2)  <br>
+                    { <br>
+                        arr[k] = R[j]; <br>
+                        j++; <br>
+                        k++; <br>
+                    } <br>
+                }
+            </p>
+            <h2 style="text-decoration: underline; font-size: 0.8cm;">Merge-Sort Code :-</h2>
+            <p>
+                void mergeSort(int arr[], int l, int r) <br>
+                { <br>
+                    if (l < r)  <br>
+                    { <br>
+                        int m = l + (r - l) / 2; <br>
+                        mergeSort(arr, l, m); <br>
+                        mergeSort(arr, m + 1, r); <br>
+                        merge(arr, l, m, r); <br>
+                    } <br>
+                }
+            </p>
+        </div>
+
+    </section>
+</body>
+</html>

@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+}
+.nav{
+    display: flex;
+    justify-content:space-evenly;
+}
+p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8cm;
+    text-align: justify;
+}
+li,ul{
+    font-size: 0.8cm;
+    font-family: 'Montserrat', sans-serif;
+}
+#hello,#hello2,#hello4{
+    color: whitesmoke;
+    border-radius: 1cm;
+    padding: 1rem;
+    background-color: rgb(83, 82, 82);
+}
+a{
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(48, 165, 110);
+}
+
